@@ -1,0 +1,193 @@
+body {
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
+    "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+body {
+  background: #f3f8fb;
+  position: relative;
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
+    monospace;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+nav {
+  background-color: darkcyan;
+}
+nav:hover {
+  box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+}
+
+.NavbarHeading {
+  padding: 1em;
+  text-align: center;
+  color: white;
+
+  margin: 0 auto;
+}
+
+.NavbarHeading::before {
+  content: url("./Images/castle-24.png");
+  margin-right: 0.2em;
+}
+
+.NavbarHeading::after {
+  content: url("./Images/castle-24.png");
+  margin-left: 0.2em;
+}
+
+.container {
+  width: 95%;
+  margin: 2em auto;
+}
+
+.loadingHead {
+  text-align: center;
+}
+
+.pexelsImage {
+  object-fit: cover;
+  background-position: center;
+  border-radius: 0.6em;
+  background-color: rgba(0, 0, 0, 0.24);
+  transition: filter 100ms ease-in;
+  height: 300px;
+}
+
+.image:hover > .pexelsImage {
+  filter: brightness(50%);
+  cursor: pointer;
+}
+
+.AboutPhoto:hover ~ .image > .pexelsImage {
+  filter: brightness(50%);
+  cursor: pointer;
+}
+
+.picsContainer {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+}
+
+.CardBody {
+  animation: fadein 250ms ease-in;
+  text-align: center;
+  position: relative;
+  margin: 1em 0.4em;
+}
+
+@keyframes fadein {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+.CardBody:hover .AboutPhoto {
+  transform: scaleY(1);
+}
+
+.AboutPhoto {
+  position: absolute;
+
+  z-index: 1;
+  left: 10%;
+  right: 10%;
+  bottom: 5%;
+  color: #f3f8fb;
+  transform: scaleY(0);
+  transform-origin: bottom;
+  transition: transform 90ms ease-in;
+}
+
+.link {
+  color: #f3f8fb;
+  text-decoration: none;
+}
+
+.picsPara {
+  margin: 0.3em 0;
+}
+
+.modal {
+  position: fixed;
+  z-index: 1;
+  left: 0;
+  right: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  background-color: rgba(0, 0, 0, 0.24);
+}
+
+.modalContent {
+  background-color: white;
+  margin: 20% auto;
+  padding: 40px;
+  width: 60%;
+  text-align: center;
+  border-radius: 0.6em;
+}
+
+.StartAgainBtn {
+  padding: 0.4em 1em;
+  margin: 0.5em 0;
+  background-color: transparent;
+  border: 0.3em solid rgba(0, 0, 0, 0.24);
+  border-radius: 0.3em;
+  cursor: pointer;
+}
+
+.StartAgainBtn:hover {
+  border: 0.3em solid black;
+}
+
+.flexScores {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.ScoreHead {
+  display: inline;
+}
+
+.score {
+  margin: 0 2em;
+}
+
+@media (max-width: 600px) {
+  .picsContainer {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .pexelsImage {
+    height: 200px;
+  }
+  .modalContent {
+    width: 80%;
+  }
+
+  .AboutPhoto {
+    display: none;
+  }
+  .image:hover > .pexelsImage {
+    filter: brightness(100%);
+    cursor: pointer;
+  }
+}
